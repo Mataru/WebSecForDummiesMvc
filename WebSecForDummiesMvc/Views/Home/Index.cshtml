@@ -1,8 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
 <div class="text-center">
     <h1 class="display-1">Welcome to the most secure bitcoin wallet ever ;)</h1>
-    <p>Please <a asp-action="Login">login</a> or <a asp-action="Register">register</a>.</p>
+    @if (User.Identity is { IsAuthenticated: true })
+    {
+        <p>Manage your account <a asp-controller="Account" asp-action="Manage">here</a>.</p>
+    }
+    else
+    {
+        <p>Please <a asp-action="Login">login</a> or <a asp-action="Register">register</a>.</p>
+    }
 </div>

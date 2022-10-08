@@ -1,7 +1,13 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.EntityFrameworkCore;
+using WebSecForDummiesMvc.Data;
+using WebSecForDummiesMvc.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<WalletContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("WalletDbContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -10,6 +16,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     options.LoginPath = "/Home/Login";
 });
 builder.Services.AddMvc();
+builder.Services.AddScoped<IDataService, DataService>();
 
 var app = builder.Build();
 
@@ -38,5 +45,11 @@ app.UseCookiePolicy(new CookiePolicyOptions
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+{
+    var dbContext = serviceScope.ServiceProvider.GetService<WalletContext>();
+    dbContext?.Database.Migrate();
+}
 
 app.Run();

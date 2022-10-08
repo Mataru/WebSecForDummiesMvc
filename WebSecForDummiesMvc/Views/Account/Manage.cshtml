@@ -1,0 +1,68 @@
+﻿@model Account
+@{
+    ViewData["Title"] = "My Account";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+    
+    <div class="spacer"></div>
+
+    @if (@ViewBag.Alert != null)
+    {
+        <h3 class="alert alert-danger">@ViewBag.Alert</h3>
+    }
+    @if (@ViewBag.Message != null)
+    {
+        <h3 class="alert alert-success">@ViewBag.Message</h3>
+    }
+
+    <h4>Current balance</h4>
+    <div class="form-control">
+        <div class="align-items-center">
+            <h4 class="col-sm-10">@Html.ViewData.Model.Balance</h4>
+            <h4 class="col-sm-1">@Html.ViewData.Model.Currency</h4>
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <form asp-action="TransferFunds" method="post">
+        <h4>Transfer funds</h4>
+        <div class="form-control">
+            <div class="row align-items-center">
+                <label class="col">Recipient</label>
+                <div class="col-sm-11">
+                    <input type="text" name="recipient" class="form-control" autofocus/>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <label class="col">Amount</label>
+                <div class="col-sm-11">
+                    <input type="number" name="amount" class="form-control"/>
+                </div>
+                <div class="col-sm-1">
+                    <button class="btn btn-success" style="margin-top: 16px" type="submit">Transfer</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="spacer"></div>
+    
+    <form asp-action="ChangePassword" method="post">
+        <h4>Change your password</h4>
+        <div class="form-control">
+            <div class="row align-items-center">
+                <label class="col-sm-2">New password</label>
+                <div class="col-sm-10">
+                    <input type="password" name="newPassword" id="password" class="form-control"/>
+                </div>
+                <div class="col-sm-1">
+                    <button class="btn btn-success" style="margin-top: 16px" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

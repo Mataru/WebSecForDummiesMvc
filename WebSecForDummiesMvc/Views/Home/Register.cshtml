@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Login";
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Register";
 }
 
 <div class="container">
@@ -8,7 +9,7 @@
         <h3 class="alert alert-danger">@ViewBag.Message</h3>
     }
 
-    <form asp-action="Login" method="post">
+    <form asp-action="Register" method="post">
         <div class="form-control">
             <div class="row align-items-center">
                 <label class="col">Username</label>
@@ -24,6 +25,6 @@
             </div>
         </div>
 
-        <button class="btn btn-success" style="margin-top: 16px" type="submit">Login</button>
+        <button class="btn btn-success" style="margin-top: 16px" type="submit">Register</button>
     </form>
 </div>
