@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebSecForDummiesMvc.Services;
+using MyCryptoWallet.Services;
 
-namespace WebSecForDummiesMvc.Controllers;
+namespace MyCryptoWallet.Controllers;
 
 [Authorize]
 public class AccountController : Controller

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebSecForDummiesMvc.Models;
+namespace MyCryptoWallet.Models;
 
 public class User
 {

@@ -1,4 +1,4 @@
-namespace WebSecForDummiesMvc.Models;
+namespace MyCryptoWallet.Models;
 
 public class ErrorViewModel
 {

@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.EntityFrameworkCore;
-using WebSecForDummiesMvc.Data;
-using WebSecForDummiesMvc.Services;
+using MyCryptoWallet.Data;
+using MyCryptoWallet.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

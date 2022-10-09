@@ -1,13 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
-using WebSecForDummiesMvc.Models;
-using WebSecForDummiesMvc.Services;
+using Microsoft.AspNetCore.Mvc;
+using MyCryptoWallet.Models;
+using MyCryptoWallet.Services;
 
-namespace WebSecForDummiesMvc.Controllers;
+namespace MyCryptoWallet.Controllers;
 
 public class HomeController : Controller
 {

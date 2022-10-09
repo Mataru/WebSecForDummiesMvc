@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace WebSecForDummiesMvc.Migrations
+namespace MyCryptoWallet.Migrations
 {
     public partial class Init : Migration
     {

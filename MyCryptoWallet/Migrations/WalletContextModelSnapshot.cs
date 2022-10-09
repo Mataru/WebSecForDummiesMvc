@@ -3,19 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebSecForDummiesMvc.Data;
+using MyCryptoWallet.Data;
 
 #nullable disable
 
-namespace WebSecForDummiesMvc.Migrations
+namespace MyCryptoWallet.Migrations
 {
     [DbContext(typeof(WalletContext))]
-    [Migration("20221008134815_Init")]
-    partial class Init
+    partial class WalletContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +22,7 @@ namespace WebSecForDummiesMvc.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("WebSecForDummiesMvc.Models.Account", b =>
+            modelBuilder.Entity("MyCryptoWallet.Models.Account", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,7 +47,7 @@ namespace WebSecForDummiesMvc.Migrations
                     b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("WebSecForDummiesMvc.Models.User", b =>
+            modelBuilder.Entity("MyCryptoWallet.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -78,9 +76,9 @@ namespace WebSecForDummiesMvc.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("WebSecForDummiesMvc.Models.Account", b =>
+            modelBuilder.Entity("MyCryptoWallet.Models.Account", b =>
                 {
-                    b.HasOne("WebSecForDummiesMvc.Models.User", "Owner")
+                    b.HasOne("MyCryptoWallet.Models.User", "Owner")
                         .WithMany()
                         .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)

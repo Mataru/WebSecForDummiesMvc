@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebSecForDummiesMvc.Data;
-using WebSecForDummiesMvc.Models;
+using MyCryptoWallet.Data;
+using MyCryptoWallet.Models;
 
-namespace WebSecForDummiesMvc.Services;
+namespace MyCryptoWallet.Services;
 
 public interface IDataService
 {

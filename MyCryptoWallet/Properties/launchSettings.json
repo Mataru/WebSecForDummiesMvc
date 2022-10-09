@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "WebSecForDummiesMvc": {
+    "MyCryptoWallet": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

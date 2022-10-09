@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebSecForDummiesMvc.Models;
+using MyCryptoWallet.Models;
 
-namespace WebSecForDummiesMvc.Data;
+namespace MyCryptoWallet.Data;
 
 public class WalletContext : DbContext
 {
