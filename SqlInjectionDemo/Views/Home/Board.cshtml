@@ -1,0 +1,46 @@
+﻿@model Board
+@{
+    ViewData["Title"] = @Html.ViewData.Model.Name;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to @(Html.ViewData.Model.Name). Feel free to make a post below :)</h1>
+
+    <form asp-action="CreatePost" method="post">
+        <input hidden name="boardName" value="@Html.ViewData.Model.Name"/>
+        <h4>Post something</h4>
+        <div class="form-control">
+            <div class="row align-items-center">
+                <label class="col">Title</label>
+                <div class="col-sm-11">
+                    <input type="text" name="title" class="form-control" autofocus/>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <label class="col">Comment</label>
+                <div class="col-sm-11">
+                    <textarea name="text" class="form-control"></textarea>
+                </div>
+                <div class="col-sm-1">
+                    <button class="btn btn-success" style="margin-top: 16px" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="spacer"></div>
+
+    <div>
+        @foreach (var post in Html.ViewData.Model.Posts)
+        {
+            <div class="form-control" style="margin-bottom: 32px;">
+                <div class="row align-items-start">
+                    <h2 class="text-start">@post.Title</h2>
+                    <span class="text-start">@post.CreatedTimestamp.ToLocalTime().ToString("g")</span>
+                </div>
+                <p class="form-control text-start">@Html.Raw(@post.Text)</p>
+            </div>
+        }
+    </div>
+
+</div>

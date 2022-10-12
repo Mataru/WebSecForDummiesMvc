@@ -14,6 +14,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {
     options.LoginPath = "/Home/Login";
+    options.Cookie.Name = "LoggedInSession";
+    options.Cookie.SameSite = SameSiteMode.None;
+    options.Cookie.HttpOnly = true;
 });
 builder.Services.AddMvc();
 builder.Services.AddScoped<IDataService, DataService>();
@@ -39,7 +42,8 @@ app.UseAuthorization();
 app.UseCookiePolicy(new CookiePolicyOptions
 {
     HttpOnly = HttpOnlyPolicy.Always,
-    MinimumSameSitePolicy = SameSiteMode.Lax
+    MinimumSameSitePolicy = SameSiteMode.None,
+    Secure = CookieSecurePolicy.Always,
 });
 
 app.MapControllerRoute(
